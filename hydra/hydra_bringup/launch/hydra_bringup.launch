@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="paused"				default="false"/>
-	<arg name="use_sim_time"	default="true"/>
-	<arg name="gui"						default="true"/>
-	<arg name="debug"					default="true"/>
-	<arg name="headless"			default="false"/>
+	<arg name="paused" default="false"/>
+	<arg name="use_sim_time" default="true"/>
+	<arg name="gui" default="true"/>
+	<arg name="debug" default="true"/>
+	<arg name="headless" default="false"/>
 
 	<arg name="model" default="$(find xacro)/xacro.py $(find hydra_description)/urdf/hydra.urdf"/>
 	<arg name="world" default="$(find hydra_description)/worlds/empty.world"/>
+	<arg name="gzpose" default="-x 0 -y 0 -z 1.1 -R 0.0 -P 0.0 -Y 0.0" />
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="world_name" value="$(arg world)"/>
@@ -19,7 +20,6 @@
 	</include>
 
 	<param name="robot_description" command="$(arg model)"/>
-	<arg name="gzpose" default="-x 0 -y 0 -z 1.1 -R 0.0 -P 0.0 -Y 0.0"/>
 
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description $(arg gzpose) -model robot"/>
 
