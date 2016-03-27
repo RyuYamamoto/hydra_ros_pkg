@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xxacro" name="atlas">
+	<xacro:include filename="$(find hydra_description)/urdf/hydra.urdf"/>
+	<xacro:include filename="$(find hydra_description)/urdf/hydra.transmission.xacro"/>
+	
+	<!--Transmission-->
+	<!--Right Leg-->
+	<hydra_transmission name="rhip_y" reduction="1.0"/>
+	<hydra_transmission name="rhip_p" reduction="1.0"/>
+	<hydra_transmission name="rhip_r" reduction="1.0"/>
+	<hydra_transmission name="rknee_p" reduction="1.0"/>
+	<hydra_transmission name="rankle_r" reduction="1.0"/>
+	<hydra_transmission name="rankle_p" reduction="1.0"/>
+
+	<!--Left Leg-->
+	<hydra_transmission name="lhip_y" reduction="1.0"/>
+	<hydra_transmission name="lhip_p" reduction="1.0"/>
+	<hydra_transmission name="lhip_r" reduction="1.0"/>
+	<hydra_transmission name="lknee_p" reduction="1.0"/>
+	<hydra_transmission name="lankle_r" reduction="1.0"/>
+	<hydra_transmission name="lankle_p" reduction="1.0"/>
+
+	<!--Waist-->
+	<hydra_transmission name="waist_p" reduction="1.0"/>
+	<hydra_transmission name="waist_r" reduction="1.0"/>
+	
+	<!--Head-->
+	<hydra_transmission name="neck_p" reduction="1.0"/>
+	
+	<!--Right Arm-->
+	<hydra_transmission name="rscaplae_y" reduction="1.0"/>
+	<hydra_transmission name="rshoulder_p" reduction="1.0"/>
+	<hydra_transmission name="rshoulder_r" reduction="1.0"/>
+	<hydra_transmission name="rshoulder_y" reduction="1.0"/>
+	<hydra_transmission name="relbow_p" reduction="1.0"/>
+	<hydra_transmission name="rwrist_y" reduction="1.0"/>
+	<hydra_transmission name="rwrist_r" reduction="1.0"/>
+	<hydra_transmission name="rwrist_p" reduction="1.0"/>
+
+	<!--Left Arm-->
+	<hydra_transmission name="lscaplae_y" reduction="1.0"/>
+	<hydra_transmission name="lshoulder_p" reduction="1.0"/>
+	<hydra_transmission name="lshoulder_r" reduction="1.0"/>
+	<hydra_transmission name="lshoulder_y" reduction="1.0"/>
+	<hydra_transmission name="lelbow_p" reduction="1.0"/>
+	<hydra_transmission name="lwrist_y" reduction="1.0"/>
+	<hydra_transmission name="lwrist_r" reduction="1.0"/>
+	<hydra_transmission name="lwrist_p" reduction="1.0"/>
+
+	<!--Camera Joint-->
+	<hydra_transmission name="camera_joint" reduction="1.0"/>
+	
+	<!--Hokuyo Joint-->
+	<hydra_transmission name="hokuyo_joint" reduction="1.0"/>
+	
+	<!--Depth Joint-->
+	<hydra_transmission name="depth_joint" reduction="1.0"/>
+
+</robot>	

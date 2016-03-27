@@ -6,7 +6,7 @@
 	<arg name="debug" default="true"/>
 	<arg name="headless" default="false"/>
 
-	<arg name="model" default="$(find xacro)/xacro.py $(find hydra_description)/urdf/hydra.urdf"/>
+	<arg name="model" default="$(find xacro)/xacro.py $(find hydra_description)/urdf/hydra.urdf.xacro"/>
 	<arg name="world" default="$(find hydra_description)/worlds/empty.world"/>
 	<arg name="gzpose" default="-x 0 -y 0 -z 1.1 -R 0.0 -P 0.0 -Y 0.0" />
 
