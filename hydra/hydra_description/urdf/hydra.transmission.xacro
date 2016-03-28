@@ -3,12 +3,12 @@
   <xacro:macro name="hydra_transmission" params="name reduction">
     <transmission name="${name}_transmission">
       <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="${name}_motor">
+      <actuator name="${name}">
         <mechanicalReduction>${reduction}</mechanicalReduction>
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
       </actuator>
       <joint name="${name}">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
       </joint>
     </transmission>
   </xacro:macro>
