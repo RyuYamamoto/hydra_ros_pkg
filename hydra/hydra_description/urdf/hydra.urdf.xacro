@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xxacro" name="atlas">
+<robot xmlns:xacro="http://www.ros.org/wiki/xxacro" name="hydra">
 	<xacro:include filename="$(find hydra_description)/urdf/hydra.urdf"/>
 	<xacro:include filename="$(find hydra_description)/urdf/hydra.transmission.xacro"/>
+	<xacro:include filename="$(find hydra_description)/gazebo/gazebo.urdf.xacro" />
 	
 	<!--Transmission-->
 	<!--Right Leg-->
@@ -48,12 +49,12 @@
 	<hydra_transmission name="lwrist_p" reduction="1.0"/>
 
 	<!--Camera Joint-->
-	<hydra_transmission name="camera_joint" reduction="1.0"/>
+	<!--hydra_transmission name="camera_joint" reduction="1.0"/-->
 	
 	<!--Hokuyo Joint-->
-	<hydra_transmission name="hokuyo_joint" reduction="1.0"/>
+	<!--hydra_transmission name="hokuyo_joint" reduction="1.0"/-->
 	
 	<!--Depth Joint-->
-	<hydra_transmission name="depth_joint" reduction="1.0"/>
+	<!--hydra_transmission name="depth_joint" reduction="1.0"/-->
 
 </robot>	
