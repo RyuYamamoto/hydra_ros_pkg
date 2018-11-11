@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xxacro" name="hydra">
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="hydra">
 	<xacro:include filename="$(find hydra_description)/urdf/hydra.urdf"/>
 	<xacro:include filename="$(find hydra_description)/urdf/hydra.transmission.xacro"/>
 	<xacro:include filename="$(find hydra_description)/gazebo/gazebo.urdf.xacro" />
@@ -57,4 +57,4 @@
 	<!--Depth Joint-->
 	<!--hydra_transmission name="depth_joint" reduction="1.0"/-->
 
-</robot>	
+</robot>

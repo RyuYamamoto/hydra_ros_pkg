@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: hydra_description
+    relative_path: urdf/hydra.urdf
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/hydragon.srdf
+  CONFIG:
+    author_name: RyuYamamoto
+    author_email: rottertarmenation.y11.r18@gmail.com
+    generated_timestamp: 1541936823

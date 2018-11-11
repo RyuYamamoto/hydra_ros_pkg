@@ -1,0 +1,240 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="hydragon">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="LeftArm">
+        <joint name="lscaplae_y" />
+        <joint name="lshoulder_p" />
+        <joint name="lshoulder_r" />
+        <joint name="lshoulder_y" />
+        <joint name="lelbow_p" />
+        <joint name="lwrist_y" />
+        <joint name="lwrist_r" />
+        <joint name="lwrist_p" />
+    </group>
+    <group name="RightArm">
+        <joint name="rscaplae_y" />
+        <joint name="rshoulder_p" />
+        <joint name="rshoulder_r" />
+        <joint name="rshoulder_y" />
+        <joint name="relbow_p" />
+        <joint name="rwrist_y" />
+        <joint name="rwrist_r" />
+        <joint name="rwrist_p" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="ready" group="LeftArm">
+        <joint name="lelbow_p" value="-2" />
+        <joint name="lscaplae_y" value="0" />
+        <joint name="lshoulder_p" value="0.4" />
+        <joint name="lshoulder_r" value="0.25" />
+        <joint name="lshoulder_y" value="0" />
+        <joint name="lwrist_p" value="0" />
+        <joint name="lwrist_r" value="0" />
+        <joint name="lwrist_y" value="0" />
+    </group_state>
+    <group_state name="ready" group="RightArm">
+        <joint name="relbow_p" value="-2" />
+        <joint name="rscaplae_y" value="0" />
+        <joint name="rshoulder_p" value="0.4" />
+        <joint name="rshoulder_r" value="-0.2" />
+        <joint name="rshoulder_y" value="0" />
+        <joint name="rwrist_p" value="0" />
+        <joint name="rwrist_r" value="0" />
+        <joint name="rwrist_y" value="0" />
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="LHand" parent_link="Lscaplae" group="LeftArm" parent_group="LeftArm" />
+    <end_effector name="RHand" parent_link="Rscaplae" group="RightArm" parent_group="RightArm" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="Lankle_v" link2="Lfoot" reason="Adjacent" />
+    <disable_collisions link1="Lankle_v" link2="Lhand" reason="Default" />
+    <disable_collisions link1="Lankle_v" link2="Lhip_v" reason="Always" />
+    <disable_collisions link1="Lankle_v" link2="Llarm" reason="Default" />
+    <disable_collisions link1="Lankle_v" link2="Llleg" reason="Adjacent" />
+    <disable_collisions link1="Lankle_v" link2="Luleg" reason="Always" />
+    <disable_collisions link1="Lankle_v" link2="Lwrist_v" reason="Default" />
+    <disable_collisions link1="Lankle_v" link2="Rankle_v" reason="Default" />
+    <disable_collisions link1="Lankle_v" link2="Rfoot" reason="Default" />
+    <disable_collisions link1="Lankle_v" link2="Rlleg" reason="Default" />
+    <disable_collisions link1="Lelbow" link2="Lhand" reason="Always" />
+    <disable_collisions link1="Lelbow" link2="Llarm" reason="Adjacent" />
+    <disable_collisions link1="Lelbow" link2="Lshoulder_yaw" reason="Always" />
+    <disable_collisions link1="Lelbow" link2="Luarm" reason="Adjacent" />
+    <disable_collisions link1="Lelbow" link2="Lwrist_v" reason="Always" />
+    <disable_collisions link1="Lfoot" link2="Lhand" reason="Default" />
+    <disable_collisions link1="Lfoot" link2="Llarm" reason="Default" />
+    <disable_collisions link1="Lfoot" link2="Llleg" reason="Default" />
+    <disable_collisions link1="Lfoot" link2="Lwrist_v" reason="Default" />
+    <disable_collisions link1="Lfoot" link2="Rankle_v" reason="Default" />
+    <disable_collisions link1="Lfoot" link2="Rfoot" reason="Default" />
+    <disable_collisions link1="Lfoot" link2="Rlleg" reason="Default" />
+    <disable_collisions link1="Lhand" link2="Llarm" reason="Default" />
+    <disable_collisions link1="Lhand" link2="Llleg" reason="Default" />
+    <disable_collisions link1="Lhand" link2="Lwrist_v" reason="Adjacent" />
+    <disable_collisions link1="Lhip" link2="Lhip_v" reason="Adjacent" />
+    <disable_collisions link1="Lhip" link2="Llleg" reason="Always" />
+    <disable_collisions link1="Lhip" link2="Lscaplae" reason="Always" />
+    <disable_collisions link1="Lhip" link2="Lshoulder_v" reason="Always" />
+    <disable_collisions link1="Lhip" link2="Lshoulder_yaw" reason="Always" />
+    <disable_collisions link1="Lhip" link2="Luarm" reason="Always" />
+    <disable_collisions link1="Lhip" link2="Luleg" reason="Always" />
+    <disable_collisions link1="Lhip" link2="Rhip" reason="Always" />
+    <disable_collisions link1="Lhip" link2="Rhip_v" reason="Always" />
+    <disable_collisions link1="Lhip" link2="Rscaplae" reason="Always" />
+    <disable_collisions link1="Lhip" link2="Ruleg" reason="Always" />
+    <disable_collisions link1="Lhip" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Lhip" link2="torso" reason="Always" />
+    <disable_collisions link1="Lhip" link2="waist_base" reason="Adjacent" />
+    <disable_collisions link1="Lhip" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Lhip_v" link2="Llleg" reason="Always" />
+    <disable_collisions link1="Lhip_v" link2="Lscaplae" reason="Always" />
+    <disable_collisions link1="Lhip_v" link2="Lshoulder_v" reason="Always" />
+    <disable_collisions link1="Lhip_v" link2="Luleg" reason="Adjacent" />
+    <disable_collisions link1="Lhip_v" link2="Rhip" reason="Always" />
+    <disable_collisions link1="Lhip_v" link2="Rhip_v" reason="Always" />
+    <disable_collisions link1="Lhip_v" link2="Ruleg" reason="Always" />
+    <disable_collisions link1="Lhip_v" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Lhip_v" link2="torso" reason="Always" />
+    <disable_collisions link1="Lhip_v" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Lhip_v" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Llarm" link2="Llleg" reason="Default" />
+    <disable_collisions link1="Llarm" link2="Lshoulder_yaw" reason="Always" />
+    <disable_collisions link1="Llarm" link2="Luarm" reason="Always" />
+    <disable_collisions link1="Llarm" link2="Lwrist_v" reason="Adjacent" />
+    <disable_collisions link1="Llleg" link2="Luleg" reason="Adjacent" />
+    <disable_collisions link1="Llleg" link2="Lwrist_v" reason="Default" />
+    <disable_collisions link1="Llleg" link2="Rankle_v" reason="Default" />
+    <disable_collisions link1="Llleg" link2="Rfoot" reason="Default" />
+    <disable_collisions link1="Lscaplae" link2="Lshoulder_v" reason="Adjacent" />
+    <disable_collisions link1="Lscaplae" link2="Lshoulder_yaw" reason="Always" />
+    <disable_collisions link1="Lscaplae" link2="Luarm" reason="Always" />
+    <disable_collisions link1="Lscaplae" link2="Luleg" reason="Always" />
+    <disable_collisions link1="Lscaplae" link2="Rhip" reason="Always" />
+    <disable_collisions link1="Lscaplae" link2="Rscaplae" reason="Always" />
+    <disable_collisions link1="Lscaplae" link2="head" reason="Always" />
+    <disable_collisions link1="Lscaplae" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Lscaplae" link2="torso" reason="Adjacent" />
+    <disable_collisions link1="Lscaplae" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Lscaplae" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Lshoulder_v" link2="Lshoulder_yaw" reason="Adjacent" />
+    <disable_collisions link1="Lshoulder_v" link2="Luarm" reason="Always" />
+    <disable_collisions link1="Lshoulder_v" link2="Luleg" reason="Always" />
+    <disable_collisions link1="Lshoulder_v" link2="head" reason="Always" />
+    <disable_collisions link1="Lshoulder_v" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Lshoulder_v" link2="torso" reason="Always" />
+    <disable_collisions link1="Lshoulder_v" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Lshoulder_v" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Lshoulder_yaw" link2="Luarm" reason="Adjacent" />
+    <disable_collisions link1="Lshoulder_yaw" link2="head" reason="Always" />
+    <disable_collisions link1="Lshoulder_yaw" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Lshoulder_yaw" link2="torso" reason="Always" />
+    <disable_collisions link1="Lshoulder_yaw" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Lshoulder_yaw" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Luarm" link2="head" reason="Always" />
+    <disable_collisions link1="Luarm" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Luarm" link2="torso" reason="Always" />
+    <disable_collisions link1="Luarm" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Luarm" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Luleg" link2="Rhip" reason="Always" />
+    <disable_collisions link1="Luleg" link2="Rhip_v" reason="Always" />
+    <disable_collisions link1="Luleg" link2="Rscaplae" reason="Always" />
+    <disable_collisions link1="Luleg" link2="Ruleg" reason="Always" />
+    <disable_collisions link1="Luleg" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Luleg" link2="torso" reason="Always" />
+    <disable_collisions link1="Luleg" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Luleg" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Rankle_v" link2="Rfoot" reason="Adjacent" />
+    <disable_collisions link1="Rankle_v" link2="Rhand" reason="Default" />
+    <disable_collisions link1="Rankle_v" link2="Rhip_v" reason="Always" />
+    <disable_collisions link1="Rankle_v" link2="Rlarm" reason="Default" />
+    <disable_collisions link1="Rankle_v" link2="Rlleg" reason="Adjacent" />
+    <disable_collisions link1="Rankle_v" link2="Ruleg" reason="Always" />
+    <disable_collisions link1="Rankle_v" link2="Rwrist_v" reason="Default" />
+    <disable_collisions link1="Relbow" link2="Rhand" reason="Default" />
+    <disable_collisions link1="Relbow" link2="Rlarm" reason="Adjacent" />
+    <disable_collisions link1="Relbow" link2="Rshoulder_yaw" reason="Always" />
+    <disable_collisions link1="Relbow" link2="Ruarm" reason="Adjacent" />
+    <disable_collisions link1="Relbow" link2="Rwrist_v" reason="Default" />
+    <disable_collisions link1="Rfoot" link2="Rhand" reason="Default" />
+    <disable_collisions link1="Rfoot" link2="Rlarm" reason="Default" />
+    <disable_collisions link1="Rfoot" link2="Rlleg" reason="Default" />
+    <disable_collisions link1="Rfoot" link2="Rwrist_v" reason="Default" />
+    <disable_collisions link1="Rhand" link2="Rlarm" reason="Default" />
+    <disable_collisions link1="Rhand" link2="Rlleg" reason="Default" />
+    <disable_collisions link1="Rhand" link2="Rwrist_v" reason="Adjacent" />
+    <disable_collisions link1="Rhip" link2="Rhip_v" reason="Adjacent" />
+    <disable_collisions link1="Rhip" link2="Rlleg" reason="Always" />
+    <disable_collisions link1="Rhip" link2="Rscaplae" reason="Always" />
+    <disable_collisions link1="Rhip" link2="Rshoulder_v" reason="Always" />
+    <disable_collisions link1="Rhip" link2="Rshoulder_yaw" reason="Always" />
+    <disable_collisions link1="Rhip" link2="Ruarm" reason="Always" />
+    <disable_collisions link1="Rhip" link2="Ruleg" reason="Default" />
+    <disable_collisions link1="Rhip" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Rhip" link2="torso" reason="Always" />
+    <disable_collisions link1="Rhip" link2="waist_base" reason="Adjacent" />
+    <disable_collisions link1="Rhip" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Rhip_v" link2="Rlleg" reason="Always" />
+    <disable_collisions link1="Rhip_v" link2="Rscaplae" reason="Always" />
+    <disable_collisions link1="Rhip_v" link2="Rshoulder_v" reason="Always" />
+    <disable_collisions link1="Rhip_v" link2="Ruleg" reason="Adjacent" />
+    <disable_collisions link1="Rhip_v" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Rhip_v" link2="torso" reason="Always" />
+    <disable_collisions link1="Rhip_v" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Rhip_v" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Rlarm" link2="Rlleg" reason="Default" />
+    <disable_collisions link1="Rlarm" link2="Rshoulder_yaw" reason="Always" />
+    <disable_collisions link1="Rlarm" link2="Ruarm" reason="Always" />
+    <disable_collisions link1="Rlarm" link2="Rwrist_v" reason="Adjacent" />
+    <disable_collisions link1="Rlleg" link2="Ruleg" reason="Adjacent" />
+    <disable_collisions link1="Rlleg" link2="Rwrist_v" reason="Default" />
+    <disable_collisions link1="Rscaplae" link2="Rshoulder_v" reason="Adjacent" />
+    <disable_collisions link1="Rscaplae" link2="Rshoulder_yaw" reason="Always" />
+    <disable_collisions link1="Rscaplae" link2="Ruarm" reason="Always" />
+    <disable_collisions link1="Rscaplae" link2="Ruleg" reason="Always" />
+    <disable_collisions link1="Rscaplae" link2="head" reason="Always" />
+    <disable_collisions link1="Rscaplae" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Rscaplae" link2="torso" reason="Adjacent" />
+    <disable_collisions link1="Rscaplae" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Rscaplae" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Rshoulder_v" link2="Rshoulder_yaw" reason="Adjacent" />
+    <disable_collisions link1="Rshoulder_v" link2="Ruarm" reason="Always" />
+    <disable_collisions link1="Rshoulder_v" link2="Ruleg" reason="Always" />
+    <disable_collisions link1="Rshoulder_v" link2="head" reason="Always" />
+    <disable_collisions link1="Rshoulder_v" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Rshoulder_v" link2="torso" reason="Always" />
+    <disable_collisions link1="Rshoulder_v" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Rshoulder_v" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Rshoulder_yaw" link2="Ruarm" reason="Adjacent" />
+    <disable_collisions link1="Rshoulder_yaw" link2="head" reason="Always" />
+    <disable_collisions link1="Rshoulder_yaw" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Rshoulder_yaw" link2="torso" reason="Always" />
+    <disable_collisions link1="Rshoulder_yaw" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Rshoulder_yaw" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Ruarm" link2="head" reason="Always" />
+    <disable_collisions link1="Ruarm" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Ruarm" link2="torso" reason="Always" />
+    <disable_collisions link1="Ruarm" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Ruarm" link2="waist_v" reason="Always" />
+    <disable_collisions link1="Ruleg" link2="imu_link" reason="Always" />
+    <disable_collisions link1="Ruleg" link2="torso" reason="Always" />
+    <disable_collisions link1="Ruleg" link2="waist_base" reason="Always" />
+    <disable_collisions link1="Ruleg" link2="waist_v" reason="Always" />
+    <disable_collisions link1="head" link2="imu_link" reason="Always" />
+    <disable_collisions link1="head" link2="torso" reason="Adjacent" />
+    <disable_collisions link1="head" link2="waist_base" reason="Always" />
+    <disable_collisions link1="head" link2="waist_v" reason="Always" />
+    <disable_collisions link1="imu_link" link2="torso" reason="Adjacent" />
+    <disable_collisions link1="imu_link" link2="waist_base" reason="Always" />
+    <disable_collisions link1="imu_link" link2="waist_v" reason="Always" />
+    <disable_collisions link1="torso" link2="waist_base" reason="Always" />
+    <disable_collisions link1="torso" link2="waist_v" reason="Adjacent" />
+    <disable_collisions link1="waist_base" link2="waist_v" reason="Adjacent" />
+</robot>

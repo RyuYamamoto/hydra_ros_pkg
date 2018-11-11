@@ -1,0 +1,21 @@
+controller_list:
+  - name: fake_LeftArm_controller
+    joints:
+      - lscaplae_y
+      - lshoulder_p
+      - lshoulder_r
+      - lshoulder_y
+      - lelbow_p
+      - lwrist_y
+      - lwrist_r
+      - lwrist_p
+  - name: fake_RightArm_controller
+    joints:
+      - rscaplae_y
+      - rshoulder_p
+      - rshoulder_r
+      - rshoulder_y
+      - relbow_p
+      - rwrist_y
+      - rwrist_r
+      - rwrist_p

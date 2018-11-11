@@ -5,10 +5,10 @@
       <type>transmission_interface/SimpleTransmission</type>
       <actuator name="${name}">
         <mechanicalReduction>${reduction}</mechanicalReduction>
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </actuator>
       <joint name="${name}">
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
     </transmission>
   </xacro:macro>

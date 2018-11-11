@@ -23,7 +23,7 @@
 
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description $(arg gzpose) -model robot"/>
 
-	<node name="joint_state_publisher" pkg="joint_state_publihsher" type="joint_state_publisher"/>
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
 
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
 

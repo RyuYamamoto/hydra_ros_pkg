@@ -1,0 +1,84 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  lelbow_p:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  lscaplae_y:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  lshoulder_p:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  lshoulder_r:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  lshoulder_y:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  lwrist_p:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  lwrist_r:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  lwrist_y:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  relbow_p:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  rscaplae_y:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  rshoulder_p:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  rshoulder_r:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  rshoulder_y:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  rwrist_p:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  rwrist_r:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  rwrist_y:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
